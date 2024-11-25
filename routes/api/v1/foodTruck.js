@@ -2,20 +2,20 @@ const router = require('express').Router()
 
 const { getCollection, ObjectId } = require('../../../db-connection')
 const getFoodTruckCollection = getCollection('FoodTruckApi')
-const getMenu = getFoodTruckCollection('Menu')
-const getEvents = getFoodTruckCollection('Events')
+const getMenu = getFoodTruckCollection('menu')
+const getEvents = getFoodTruckCollection('events')
 
-router.get('/api/v1/menu', async (request, response) => {
+router.get('/menu', async (request, response) => {
     const collection = await getMenu()
     response.send (collection)
 })
 
-router.get('/api/v1/events', async (request, response) => {
+router.get('/events', async (request, response) => {
     const collection = await getEvents()
     response.send (collection)
 })
 
-router.get('api/v1/menu/:id', async (request, response) => {
+router.get('/menu/:id', async (request, response) => {
     const { id } = request.params
 
     const collection = await getMenu()
@@ -25,7 +25,7 @@ router.get('api/v1/menu/:id', async (request, response) => {
     else response.send(found)
 })
 
-router.get('/api/v1/events/:id', async (request, response) => {
+router.get('/events/:id', async (request, response) => {
     const { id } = request.params
 
     const collection = await getEvents()
@@ -35,7 +35,7 @@ router.get('/api/v1/events/:id', async (request, response) => {
     else response.send(found)
 })
 
-router.get('POST /api/v1/menu', async (request, response) => {
+router.post('/menu', async (request, response) => {
     const {name, description, price, image_url} = request.body
     const collection = await getMenu()
     const result = await collection.insertOne({name, description, price, image_url})
@@ -43,7 +43,7 @@ router.get('POST /api/v1/menu', async (request, response) => {
 
 })
 
-router.get('/api/v1/events', async (request, response) => {
+router.post('/events', async (request, response) => {
     const {name, location, date, time} = request.body
     const collection = await getMenu()
     const result = await collection.insertOne({name, location, date, time})
