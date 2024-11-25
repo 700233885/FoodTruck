@@ -3,6 +3,7 @@ const { uri } = require('./secrets/dbcon.json')
 const client = new MongoClient(uri)
 
 const getCollection = dbName => collectionName => async () =>{
+    console.log(uri)
     await client.connect()
     return client.db(dbName).collection(collectionName)
 }

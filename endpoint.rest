@@ -1,0 +1,29 @@
+@staticUrl = http://localhost:3000/
+@apiUrl = http://localhost:3000/api/v1/
+
+### Static
+### main page 
+GET {{staticUrl}}
+
+### event
+GET {{staticUrl}}event/1
+
+###
+GET {{staticUrl}}admin
+
+### API Gets
+### menu
+GET {{apiUrl}}menu
+
+### menu with id
+GET {{apiUrl}}events
+
+### events with id
+GET {{apiUrl}}events/1
+
+### API Posts
+###
+POST {{apiUrl}}menu
+
+###
+POST {{apiUrl}}events
