@@ -16,6 +16,9 @@ GET {{staticUrl}}admin
 GET {{apiUrl}}menu
 
 ### menu with id
+GET {{apiUrl}}menu/1
+
+### events
 GET {{apiUrl}}events
 
 ### events with id
