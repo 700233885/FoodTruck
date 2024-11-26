@@ -6,8 +6,9 @@ const getMenu = getFoodTruckCollection('menu')
 const getEvents = getFoodTruckCollection('events')
 
 router.get('/menu', async (request, response) => {
+    console.log(await getMenu())// currently I dont think its returing the right thing. 
     const collection = await getMenu()
-    response.send (collection)
+    response.send(collection)
 })
 
 router.get('/events', async (request, response) => {
