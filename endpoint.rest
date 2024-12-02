@@ -16,13 +16,13 @@ GET {{staticUrl}}admin
 GET {{apiUrl}}menu
 
 ### menu with id
-GET {{apiUrl}}menu/1
+GET {{apiUrl}}menu/6744df739404ef80fa4344f5
 
 ### events
 GET {{apiUrl}}events
 
 ### events with id
-GET {{apiUrl}}events/1
+GET {{apiUrl}}events/6744ea279404ef80fa434512
 
 ### API Posts
 ###

@@ -48,7 +48,7 @@ router.post('/menu', async (request, response) => {
 
 router.post('/events', async (request, response) => {
     const {name, location, date, time} = request.body
-    const collection = await getMenu()
+    const collection = await getEvents()
     const result = await collection.insertOne({name, location, date, time})
     response.send(result)
 })
