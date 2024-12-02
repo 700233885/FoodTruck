@@ -5,8 +5,7 @@ const getFoodTruckCollection = getCollection('FoodTruckApi')
 const getMenu = getFoodTruckCollection('menu')
 const getEvents = getFoodTruckCollection('events')
 
-router.get('/menu', async (request, response) => {
-    console.log(await getMenu())// currently I dont think its returing the right thing. 
+router.get('/menu', async (request, response) => { 
     const collection = await getMenu()
     const found = await collection.find().toArray()
     response.send(found)
