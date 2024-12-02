@@ -26,7 +26,7 @@ const showEventList = events => {
         const singleEvent = document.createElement('div')
         singleEvent.className = "menu-item"
         singleEvent.innerHTML = `
-            <h2>${Name}</h2>
+            <h2 class= "funny_font">${Name}</h2>
             <p><b>Location: ${Location}</b></>
             <p>Time: ${Time}</p>
         `

@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+
 nav button{
    margin: 5px; 
+}
+.funny_font{
+    font-family: 'Italianno'; /*a name to be used later*/
+
 }
 
 nav button:hover {
