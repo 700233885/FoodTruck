@@ -26,12 +26,12 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <button>
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                     </button>  
                 </li>
                   <li class="nav-item">
                     <button>
-                        <a class="nav-link" href="events.html">Events</a>
+                        <a class="nav-link" href="../events.html">Events</a>
                     </button>
                 </li>
                 <li class="nav-item">
@@ -43,11 +43,25 @@
           </div>
         </div>
       </nav>
-      <form>
-        <div>
-          <input type="Text" placeholder=""/>
-          <input type="text" placeholder="Enter Food:"?>
-        </div>
-      </form>
+      <div class="container mt-5">
+      <h2>Food Form:</h2>
+    <form>
+        <input id="MenuItemName" type="text" placeholder="Enter Food Name:" required>
+        <input id="MenuItemDescription" type="Text" placeholder="Enter Food Description:" required>
+        <input id="MenuItemPrice" type="text" placeholder="Enter Food Price:"required>
+        <input id="ImageURL" type="text" placeholder="Enter Image URL:"required>
+        <input id="MenuButton" type="button" placeholder="Submit Food">
+    </form>
+    <h2>Event Form:</h2>
+    <form>
+        <div class="mb-3">
+        <input id="EventName" type="text" placeholder="Enter Event Name:" required>
+        <input id="EventLocation" type="Text" placeholder="Enter Event Location:" required>
+        <input id="EventDate" type="text" placeholder="Enter Event Date:" required>
+        <input id="EventTime" type="text" placeholder="Enter Event Time:" required>
+        <input id="EventButton" type="button" placeholder="Submit Event">
+    </div>
+    </form>
+</div>
 </body>
 </html>

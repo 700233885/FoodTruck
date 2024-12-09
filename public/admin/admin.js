@@ -1,34 +1,61 @@
 const menuItemName = document.querySelector('#MenuItemName')
-const MenuItemDescription = document.querySelector9('#MenuItemDescription')
+const menuItemDescription = document.querySelector('#MenuItemDescription')
 const menuItemPrice = document.querySelector('#MenuItemPrice')
 const imageURL = document.querySelector('#ImageURL')
 
+const menuButton = document.querySelector('#MenuButton')
+
 const eventName = document.querySelector('#EventName')
-const eventLocation = document.querySelector9('#EventLocation')
+const eventLocation = document.querySelector('#EventLocation')
 const eventDate = document.querySelector('#EventDate')
 const eventTime = document.querySelector('#EventTime')
 
-const menuButton = document.querySelector('#MenuButton')
 const eventButton = document.querySelector('#EventButton')
 
-menuButton.Onclicked('clicked', () => {
-    
+menuButton.addEventListener('click', async () => {
+    const menuItem = {
+        Name:menuItemName.value,
+        Location:menuItemDescription.value,
+        Date:menuItemPrice.value,
+        Time:imageURL.value
+    }
+    await PostMenuItem(menuItem)
 })
 
-const PostMenuItem = async () => {
-    const response = await  fetch('/api/v1/manu', {
+eventButton.addEventListener('click', async () => {
+    const event = {
+        Name:eventName.value,
+        Description:eventLocation.value,
+        Price:eventDate.value,
+        Image_url:eventTime.value
+    }
+    console.log(eventName)
+    console.log(event)
+    await PostEvent(event)
+})
+
+const PostMenuItem = async (menuItem) => {
+    const response = await fetch('/api/v1/menu', {
         method: 'POST',
         headers: {
-            'Contenet-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        bodt: JSON.stringify()
+        body: JSON.stringify(menuItem)
     })
+    console.log(JSON.stringify(menuItem))
+    return response.json()
 }
 
-const PostEvent = async () => {
-    const response = await fetch('/api/v1/events')
-    const data = await response.json()
-    return data
+const PostEvent = async (event) => {
+    const response = await fetch('/api/v1/events', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(event)
+    })
+    console.log(JSON.stringify(event))
+    return response.json()
 }
 
 
