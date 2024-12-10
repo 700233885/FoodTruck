@@ -5,15 +5,16 @@ const getFoodTruckCollection = getCollection('FoodTruckApi')
 const getMenu = getFoodTruckCollection('menu')
 const getEvents = getFoodTruckCollection('events')
 
-router.get('/menu', async (request, response) => {
-    console.log(await getMenu())// currently I dont think its returing the right thing. 
+router.get('/menu', async (request, response) => { 
     const collection = await getMenu()
-    response.send(collection)
+    const found = await collection.find().toArray()
+    response.send(found)
 })
 
 router.get('/events', async (request, response) => {
     const collection = await getEvents()
-    response.send (collection)
+    const found = await collection.find().toArray()
+    response.send (found)
 })
 
 router.get('/menu/:id', async (request, response) => {
@@ -37,17 +38,18 @@ router.get('/events/:id', async (request, response) => {
 })
 
 router.post('/menu', async (request, response) => {
-    const {name, description, price, image_url} = request.body
+    const {Name, Description, pPrice, Image_url} = request.body
     const collection = await getMenu()
-    const result = await collection.insertOne({name, description, price, image_url})
+    const result = await collection.insertOne({Name, Description, Price, Image_url})
     response.send(result)
 
 })
 
 router.post('/events', async (request, response) => {
-    const {name, location, date, time} = request.body
-    const collection = await getMenu()
-    const result = await collection.insertOne({name, location, date, time})
+    const {Name, Location, Date, Time} = request.body
+    console.log( request.body)
+    const collection = await getEvents()
+    const result = await collection.insertOne({Name, Location, Date, Time})
     response.send(result)
 })
 
