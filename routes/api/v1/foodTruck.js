@@ -29,16 +29,16 @@ router.get('/menu/:id', async (request, response) => {
 
 router.get('/events/:id', async (request, response) => {
     const { id } = request.params
-
+    
     const collection = await getEvents()
     const found = await collection.findOne({ _id: new ObjectId(id) })
-    
+
     if(!found) response.send({error: `cannot find an Event with id: ${id}`})
     else response.send(found)
 })
 
 router.post('/menu', async (request, response) => {
-    const {Name, Description, pPrice, Image_url} = request.body
+    const {Name, Description, Price, Image_url} = request.body
     const collection = await getMenu()
     const result = await collection.insertOne({Name, Description, Price, Image_url})
     response.send(result)
