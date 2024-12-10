@@ -6,8 +6,8 @@ router.get('/', (request, response) => {
     response.sendFile('index.html', { root })
 })
 
-router.get('/event/:eventId', (request, response) => {
-    response.sendFile('index.html', { root })
+router.get('/events/:eventId', (request, response) => {
+    response.sendFile('event.html', { root })
 })
 
 router.get('/admin', (request, response) => {

@@ -15,23 +15,29 @@ const eventButton = document.querySelector('#EventButton')
 menuButton.addEventListener('click', async () => {
     const menuItem = {
         Name:menuItemName.value,
-        Location:menuItemDescription.value,
-        Date:menuItemPrice.value,
-        Time:imageURL.value
+        Description:menuItemDescription.value,
+        Price:menuItemPrice.value,
+        Image_url:imageURL.value
     }
     await PostMenuItem(menuItem)
+    menuItemName.value = ""
+    menuItemDescription.value = ""
+    menuItemPrice.value = ""
+    imageURL.value = ""
 })
 
 eventButton.addEventListener('click', async () => {
     const event = {
         Name:eventName.value,
-        Description:eventLocation.value,
-        Price:eventDate.value,
-        Image_url:eventTime.value
+        Location:eventLocation.value,
+        Date:eventDate.value,
+        Time:eventTime.value
     }
-    console.log(eventName)
-    console.log(event)
     await PostEvent(event)
+    eventName.value = ""
+    eventLocation.value = ""
+    eventDate.value = ""
+    eventTime.value = ""
 })
 
 const PostMenuItem = async (menuItem) => {
@@ -42,7 +48,6 @@ const PostMenuItem = async (menuItem) => {
         },
         body: JSON.stringify(menuItem)
     })
-    console.log(JSON.stringify(menuItem))
     return response.json()
 }
 
@@ -54,7 +59,6 @@ const PostEvent = async (event) => {
         },
         body: JSON.stringify(event)
     })
-    console.log(JSON.stringify(event))
     return response.json()
 }
 
